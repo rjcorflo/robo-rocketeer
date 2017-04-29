@@ -1,0 +1,21 @@
+{
+    "name": "rjcorflo/robo-rocketeer",
+    "description": "Rocketeer Tasks for Robo Task Runner",
+    "type": "robo-tasks",
+    "require": {
+        "php": ">=5.5.0",
+        "consolidation/robo": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rjcorflo",
+            "email": "rj.corchero@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RJ\\Robo\\Task\\Rocketeer\\": "src"
+        }
+    }
+}
