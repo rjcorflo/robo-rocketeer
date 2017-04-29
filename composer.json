@@ -2,6 +2,8 @@
     "name": "rjcorflo/robo-rocketeer",
     "description": "Rocketeer Tasks for Robo Task Runner",
     "type": "robo-tasks",
+    "keywords": ["robo","tasks"],
+    "homepage": "https://github.com/rjcorflo/robo-rocketeer",
     "require": {
         "php": ">=5.5.0",
         "consolidation/robo": "^1.0"
