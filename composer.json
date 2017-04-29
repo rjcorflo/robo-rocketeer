@@ -6,7 +6,8 @@
     "homepage": "https://github.com/rjcorflo/robo-rocketeer",
     "require": {
         "php": ">=5.5.0",
-        "consolidation/robo": "^1.0"
+        "consolidation/robo": "^1.0",
+        "anahkiasen/rocketeer": "^2.0"
     },
     "license": "MIT",
     "authors": [
