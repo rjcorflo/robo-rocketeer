@@ -2,8 +2,6 @@
 
 namespace RJ\Robo\Task\Rocketeer;
 
-use Robo\Task\Docker\Result;
-
 /**
  * Rocketeer Deploy.
  *
@@ -37,6 +35,6 @@ class Deploy extends Base
         $command = $this->getCommand();
         $this->printTaskInfo('Deploying Application: {command}', ['command' => $command]);
 
-        return new \Robo\Result($this, 0);//$this->executeCommand($command);
+        return new \Robo\Result($this, 0); //$this->executeCommand($command);
     }
 }
