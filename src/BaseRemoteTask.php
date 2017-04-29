@@ -64,7 +64,7 @@ abstract class BaseRemoteTask extends Base
      */
     public function pretend()
     {
-        $this->option("pretend");
+        $this->option('pretend');
 
         return $this;
     }
@@ -78,7 +78,7 @@ abstract class BaseRemoteTask extends Base
      */
     public function inPararell()
     {
-        $this->option('parallel');
+        $this->option('--parallel');
 
         return $this;
     }
