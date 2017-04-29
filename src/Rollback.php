@@ -1,8 +1,9 @@
 <?php
+
 namespace RJ\Robo\Task\Rocketeer;
 
 /**
- * Rocketeer Rollback
+ * Rocketeer Rollback.
  *
  * ``` php
  * <?php
@@ -48,6 +49,7 @@ class Rollback extends Base
     public function getCommand()
     {
         $this->option($this->release);
+
         return $this->traitCommand();
     }
 
@@ -58,6 +60,7 @@ class Rollback extends Base
     {
         $command = $this->getCommand();
         $this->printTaskInfo('Deploying Application: {command}', ['command' => $command]);
+
         return $this->executeCommand($command);
     }
 }

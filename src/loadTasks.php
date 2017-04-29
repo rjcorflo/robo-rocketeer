@@ -1,4 +1,5 @@
 <?php
+
 namespace RJ\Robo\Task\Rocketeer;
 
 trait loadTasks

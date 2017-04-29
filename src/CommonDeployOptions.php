@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: RJ Corchero
  * Date: 29/04/2017
- * Time: 11:41
+ * Time: 11:41.
  */
 
 namespace RJ\Robo\Task\Rocketeer;
-
 
 trait CommonDeployOptions
 {
@@ -33,6 +32,7 @@ trait CommonDeployOptions
 
     /**
      * @param string|array $connections The connection(s) to execute the Task in.
+     *
      * @return $this
      */
     public function on($connections)
@@ -54,6 +54,7 @@ trait CommonDeployOptions
 
     /**
      * @param $stages
+     *
      * @return $this
      */
     public function stages($stages)
@@ -72,6 +73,7 @@ trait CommonDeployOptions
      * Alias of stages().
      *
      * @param string|array $stages The stage(s) to execute the Task in.
+     *
      * @return $this
      */
     public function onStages($stages)
@@ -89,6 +91,7 @@ trait CommonDeployOptions
     public function pretend()
     {
         $this->pretend = '--pretend';
+
         return $this;
     }
 
@@ -102,6 +105,7 @@ trait CommonDeployOptions
     public function inPararell()
     {
         $this->parallel = '--parallel';
+
         return $this;
     }
 
@@ -111,6 +115,7 @@ trait CommonDeployOptions
         $this->option($this->stages);
         $this->option($this->pretend);
         $this->option($this->parallel);
+
         return parent::getCommand();
     }
 }
