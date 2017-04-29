@@ -5,26 +5,6 @@ namespace RJ\Robo\Task\Rocketeer;
 abstract class BaseRemoteTask extends Base
 {
     /**
-     * @var string
-     */
-    protected $parallel;
-
-    /**
-     * @var string
-     */
-    protected $pretend;
-
-    /**
-     * @var string
-     */
-    protected $on;
-
-    /**
-     * @var string
-     */
-    protected $stages;
-
-    /**
      * @param string|array $connections The connection(s) to execute the Task in.
      *
      * @return $this
@@ -33,9 +13,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($connections)) {
             $implode = implode(',', $connections);
-            $this->on = "--on='$implode'";
+            $this->option("on", $implode);
         } else {
-            $this->on = "--on='$connections'";
+            $this->option("on", $connections);
         }
 
         return $this;
@@ -55,9 +35,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($stages)) {
             $implode = implode(',', $stages);
-            $this->stages = "--stage='$implode'";
+            $this->option("stage", $implode);
         } else {
-            $this->stages = "--stage='$stages'";
+            $this->option("stage", $stages);
         }
 
         return $this;
@@ -84,7 +64,7 @@ abstract class BaseRemoteTask extends Base
      */
     public function pretend()
     {
-        $this->pretend = '--pretend';
+        $this->option("pretend");
 
         return $this;
     }
@@ -98,7 +78,7 @@ abstract class BaseRemoteTask extends Base
      */
     public function inPararell()
     {
-        $this->parallel = '--parallel';
+        $this->option('--parallel');
 
         return $this;
     }
@@ -108,19 +88,6 @@ abstract class BaseRemoteTask extends Base
      */
     public function branch($branch)
     {
-        $this->option("--branch=$branch");
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCommand()
-    {
-        $this->option($this->on)
-             ->option($this->stages)
-             ->option($this->pretend)
-             ->option($this->parallel);
-
-        return parent::getCommand();
+        $this->option("--branch", $branch);
     }
 }

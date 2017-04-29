@@ -35,11 +35,6 @@ abstract class Base extends BaseTask
     /**
      * @var string
      */
-    protected $quiet;
-
-    /**
-     * @var string
-     */
     protected $verbose;
 
     /**
@@ -66,7 +61,7 @@ abstract class Base extends BaseTask
      */
     public function quiet()
     {
-        $this->quiet = '--quiet';
+        $this->option('quiet');
 
         return $this;
     }
@@ -138,7 +133,7 @@ abstract class Base extends BaseTask
      */
     public function noInteraction()
     {
-        $this->option('--no-interaction');
+        $this->option('no-interaction');
 
         return $this;
     }
@@ -152,8 +147,7 @@ abstract class Base extends BaseTask
             $this->ansi();
         }
 
-        $this->option($this->quiet)
-             ->option($this->verbose)
+        $this->option($this->verbose)
              ->option($this->ansi);
 
         return "{$this->command} {$this->action}{$this->arguments}";
