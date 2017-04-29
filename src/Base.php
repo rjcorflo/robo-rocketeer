@@ -38,6 +38,23 @@ abstract class Base extends BaseTask
     protected $verbose;
 
     /**
+     * @param null|string $pathToRocketeer
+     *
+     * @throws \Robo\Exception\TaskException
+     */
+    public function __construct($pathToRocketeer = null)
+    {
+        $this->command = $pathToRocketeer;
+        if (!$this->command) {
+            $this->command = $this->findExecutablePhar('rocketeer');
+        }
+        if (!$this->command) {
+            throw new TaskException(__CLASS__,
+                'Not Rocketeer executable (rocketeer) could be found.');
+        }
+    }
+
+    /**
      * Adds --quiet to Rocketeer.
      *
      * @return $this
@@ -110,22 +127,6 @@ abstract class Base extends BaseTask
     }
 
     /**
-     * @param null|string $pathToRocketeer
-     *
-     * @throws \Robo\Exception\TaskException
-     */
-    public function __construct($pathToRocketeer = null)
-    {
-        $this->command = $pathToRocketeer;
-        if (!$this->command) {
-            $this->command = $this->findExecutablePhar('rocketeer');
-        }
-        if (!$this->command) {
-            throw new TaskException(__CLASS__, 'Neither local rocketeer.phar nor global rocketeer installation could be found.');
-        }
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getCommand()
@@ -135,8 +136,8 @@ abstract class Base extends BaseTask
         }
 
         $this->option($this->quiet)
-             ->option($this->verbose)
-             ->option($this->ansi);
+            ->option($this->verbose)
+            ->option($this->ansi);
 
         return "{$this->command} {$this->action}{$this->arguments}";
     }
