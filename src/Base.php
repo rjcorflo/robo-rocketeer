@@ -8,8 +8,6 @@ use Robo\Task\BaseTask;
 
 /**
  * Class Base for Rocketeer tasks.
- *
- * @package RJ\Robo\Task\Rocketeer
  */
 abstract class Base extends BaseTask
 {
