@@ -6,6 +6,11 @@ use Robo\Common\ExecOneCommand;
 use Robo\Exception\TaskException;
 use Robo\Task\BaseTask;
 
+/**
+ * Class Base for Rocketeer tasks.
+ *
+ * @package RJ\Robo\Task\Rocketeer
+ */
 abstract class Base extends BaseTask
 {
     use ExecOneCommand;
@@ -136,8 +141,12 @@ abstract class Base extends BaseTask
         }
 
         $this->option($this->quiet)
-            ->option($this->verbose)
-            ->option($this->ansi);
+             ->option($this->verbose)
+             ->option($this->ansi)
+             ->option($this->on)
+             ->option($this->stages)
+             ->option($this->pretend)
+             ->option($this->parallel);
 
         return "{$this->command} {$this->action}{$this->arguments}";
     }

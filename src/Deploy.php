@@ -18,10 +18,8 @@ namespace RJ\Robo\Task\Rocketeer;
  * ?>
  * ```
  */
-class Deploy extends Base
+class Deploy extends BaseRemoteTask
 {
-    use CommonDeployOptions;
-
     /**
      * {@inheritdoc}
      */
@@ -35,6 +33,6 @@ class Deploy extends Base
         $command = $this->getCommand();
         $this->printTaskInfo('Deploying Application: {command}', ['command' => $command]);
 
-        return new \Robo\Result($this, 0); //$this->executeCommand($command);
+        return $this->executeCommand($command);
     }
 }

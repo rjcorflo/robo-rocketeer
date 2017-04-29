@@ -17,12 +17,8 @@ namespace RJ\Robo\Task\Rocketeer;
  * ?>
  * ```
  */
-class Rollback extends Base
+class Rollback extends BaseRemoteTask
 {
-    use CommonDeployOptions {
-        getCommand as traitCommand;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -50,7 +46,7 @@ class Rollback extends Base
     {
         $this->option($this->release);
 
-        return $this->traitCommand();
+        return parent::getCommand();
     }
 
     /**
@@ -59,7 +55,7 @@ class Rollback extends Base
     public function run()
     {
         $command = $this->getCommand();
-        $this->printTaskInfo('Deploying Application: {command}', ['command' => $command]);
+        $this->printTaskInfo('Rollback Application: {command}', ['command' => $command]);
 
         return $this->executeCommand($command);
     }

@@ -2,7 +2,7 @@
 
 namespace RJ\Robo\Task\Rocketeer;
 
-trait CommonDeployOptions
+abstract class BaseRemoteTask extends Base
 {
     /**
      * @var string
@@ -103,12 +103,15 @@ trait CommonDeployOptions
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getCommand()
     {
-        $this->option($this->on);
-        $this->option($this->stages);
-        $this->option($this->pretend);
-        $this->option($this->parallel);
+        $this->option($this->on)
+             ->option($this->stages)
+             ->option($this->pretend)
+             ->option($this->parallel);
 
         return parent::getCommand();
     }
