@@ -13,9 +13,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($connections)) {
             $implode = implode(',', $connections);
-            $this->option("on", $implode);
+            $this->option("on=", $implode);
         } else {
-            $this->option("on", $connections);
+            $this->option("on=", $connections);
         }
 
         return $this;
@@ -35,9 +35,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($stages)) {
             $implode = implode(',', $stages);
-            $this->option("stage", $implode);
+            $this->option("stage=", $implode);
         } else {
-            $this->option("stage", $stages);
+            $this->option("stage=", $stages);
         }
 
         return $this;
@@ -78,16 +78,20 @@ abstract class BaseRemoteTask extends Base
      */
     public function inPararell()
     {
-        $this->option('--parallel');
+        $this->option('parallel');
 
         return $this;
     }
 
     /**
      * Select bracnh to deploy.
+     *
+     * @return $this
      */
     public function branch($branch)
     {
-        $this->option("--branch", $branch);
+        $this->option("branch=", $branch);
+
+        return $this;
     }
 }

@@ -58,7 +58,6 @@ class Rollback extends BaseRemoteTask
     {
         $command = $this->getCommand();
         $this->printTaskInfo('Rollback Application: {command}', ['command' => $command]);
-
-        return new Result($this,0);//$this->executeCommand($command);
+        return new Result($this, 1);//$this->executeCommand($command);
     }
 }
