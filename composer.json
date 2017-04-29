@@ -9,6 +9,9 @@
         "consolidation/robo": "^1.0",
         "anahkiasen/rocketeer": "^2.0"
     },
+    "require-dev": {
+        "codeception/codeception": "^2.0"
+    },
     "license": "MIT",
     "authors": [
         {
