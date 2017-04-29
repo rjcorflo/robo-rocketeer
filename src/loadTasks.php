@@ -9,8 +9,18 @@ trait loadTasks
      *
      * @return Deploy
      */
-    protected function taskComposerInstall($pathToRocketeer = null)
+    protected function taskRocketeerDeploy($pathToRocketeer = null)
     {
         return $this->task(Deploy::class, $pathToRocketeer);
+    }
+
+    /**
+     * @param null|string $pathToRocketeer
+     *
+     * @return Rollback
+     */
+    protected function taskRocketeerRollback($pathToRocketeer = null)
+    {
+        return $this->task(Rollback::class, $pathToRocketeer);
     }
 }

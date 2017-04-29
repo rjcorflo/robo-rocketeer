@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: RJ Corchero
- * Date: 29/04/2017
- * Time: 11:41.
- */
-
 namespace RJ\Robo\Task\Rocketeer;
 
 trait CommonDeployOptions
@@ -61,9 +54,9 @@ trait CommonDeployOptions
     {
         if (is_array($stages)) {
             $implode = implode(',', $stages);
-            $this->stages = "--stages='$implode'";
+            $this->stages = "--stage='$implode'";
         } else {
-            $this->stages = "--stages='$stages'";
+            $this->stages = "--stage='$stages'";
         }
 
         return $this;
