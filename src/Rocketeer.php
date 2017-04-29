@@ -3,12 +3,12 @@
 namespace RJ\Robo\Task\Rocketeer;
 
 /**
- * Rocketeer Setup.
+ * Rocketeer.
  *
  * ``` php
  * <?php
  * // simple execution, prepare remote server for deploy
- * $this->taskRocketeerSetup()->run();
+ * $this->taskRocketeer('check')->run();
  * ?>
  * ```
  */

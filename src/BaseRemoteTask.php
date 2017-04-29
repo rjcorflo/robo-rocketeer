@@ -84,8 +84,9 @@ abstract class BaseRemoteTask extends Base
     }
 
     /**
-     * Select bracnh to deploy.
+     * Select branch to deploy.
      *
+     * @param string $branch Branch to acts on.
      * @return $this
      */
     public function branch($branch)
