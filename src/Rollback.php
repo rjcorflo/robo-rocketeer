@@ -30,6 +30,7 @@ class Rollback extends BaseRemoteTask
      * Select release to rollback to.
      *
      * @param string $release Release
+     *
      * @return $this
      */
     public function toRelease($release)
