@@ -104,6 +104,14 @@ abstract class BaseRemoteTask extends Base
     }
 
     /**
+     * Select bracnh to deploy.
+     */
+    public function branch($branch)
+    {
+        $this->option("--branch=$branch");
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getCommand()

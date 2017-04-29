@@ -132,6 +132,18 @@ abstract class Base extends BaseTask
     }
 
     /**
+     * Adds `no interaction` option to rocketeer.
+     *
+     * @return $this
+     */
+    public function noInteraction()
+    {
+        $this->option('--no-interaction');
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getCommand()
@@ -142,11 +154,7 @@ abstract class Base extends BaseTask
 
         $this->option($this->quiet)
              ->option($this->verbose)
-             ->option($this->ansi)
-             ->option($this->on)
-             ->option($this->stages)
-             ->option($this->pretend)
-             ->option($this->parallel);
+             ->option($this->ansi);
 
         return "{$this->command} {$this->action}{$this->arguments}";
     }
