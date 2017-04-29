@@ -25,7 +25,7 @@ class Setup extends BaseRemoteTask
     public function run()
     {
         $command = $this->getCommand();
-        $this->printTaskInfo('Rollback Application: {command}', ['command' => $command]);
+        $this->printTaskInfo('Setup Application: {command}', ['command' => $command]);
 
         return $this->executeCommand($command);
     }

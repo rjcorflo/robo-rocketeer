@@ -2,6 +2,8 @@
 
 namespace RJ\Robo\Task\Rocketeer;
 
+use Robo\Result;
+
 /**
  * Rocketeer Rollback.
  *
@@ -25,28 +27,28 @@ class Rollback extends BaseRemoteTask
     protected $action = 'rollback';
 
     /**
-     * @var string
-     */
-    protected $release;
-
-    /**
      * Select release to rollback to.
      *
      * @param string $release Release
+     * @return $this
      */
     public function toRelease($release)
     {
-        $this->release = $release;
+        $this->arg($release);
+
+        return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * List releases before select to which one revert.
+     *
+     * @return $this
      */
-    public function getCommand()
+    public function listReleases()
     {
-        $this->option($this->release);
+        $this->option('list');
 
-        return parent::getCommand();
+        return $this;
     }
 
     /**
@@ -57,6 +59,6 @@ class Rollback extends BaseRemoteTask
         $command = $this->getCommand();
         $this->printTaskInfo('Rollback Application: {command}', ['command' => $command]);
 
-        return $this->executeCommand($command);
+        return new Result($this,0);//$this->executeCommand($command);
     }
 }

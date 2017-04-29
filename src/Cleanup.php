@@ -28,7 +28,7 @@ class Cleanup extends BaseRemoteTask
      */
     public function cleanAll()
     {
-        $this->option('--clean-all');
+        $this->option('clean-all');
         return $this;
     }
 

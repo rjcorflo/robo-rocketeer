@@ -19,7 +19,20 @@ class Update extends BaseRemoteTask
      */
     protected $action = 'update';
 
+    public function migrate()
+    {
+        $this->option('migrate');
+    }
 
+    public function seed()
+    {
+        $this->option('seed');
+    }
+
+    public function noClear()
+    {
+        $this->option('no-clear');
+    }
 
     /**
      * {@inheritdoc}
