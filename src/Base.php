@@ -1,9 +1,10 @@
 <?php
+
 namespace RJ\Robo\Task\Rocketeer;
 
-use Robo\Task\BaseTask;
-use Robo\Exception\TaskException;
 use Robo\Common\ExecOneCommand;
+use Robo\Exception\TaskException;
+use Robo\Task\BaseTask;
 
 abstract class Base extends BaseTask
 {
@@ -15,7 +16,7 @@ abstract class Base extends BaseTask
     protected $command = '';
 
     /**
-     * Action to use
+     * Action to use.
      *
      * @var string
      */
@@ -44,8 +45,10 @@ abstract class Base extends BaseTask
     public function quiet()
     {
         $this->quiet = '--quiet';
+
         return $this;
     }
+
     /**
      * First level verbose.
      *
@@ -54,6 +57,7 @@ abstract class Base extends BaseTask
     public function verbose()
     {
         $this->verbose = '-v';
+
         return $this;
     }
 
@@ -65,6 +69,7 @@ abstract class Base extends BaseTask
     public function veryVerbose()
     {
         $this->verbose = '-vv';
+
         return $this;
     }
 
@@ -76,6 +81,7 @@ abstract class Base extends BaseTask
     public function debug()
     {
         $this->verbose = '-vvv';
+
         return $this;
     }
 
@@ -87,6 +93,7 @@ abstract class Base extends BaseTask
     public function noAnsi()
     {
         $this->ansi = '--no-ansi';
+
         return $this;
     }
 
@@ -98,6 +105,7 @@ abstract class Base extends BaseTask
     public function ansi()
     {
         $this->ansi = '--ansi';
+
         return $this;
     }
 
@@ -113,7 +121,7 @@ abstract class Base extends BaseTask
             $this->command = $this->findExecutablePhar('rocketeer');
         }
         if (!$this->command) {
-            throw new TaskException(__CLASS__, "Neither local rocketeer.phar nor global rocketeer installation could be found.");
+            throw new TaskException(__CLASS__, 'Neither local rocketeer.phar nor global rocketeer installation could be found.');
         }
     }
 

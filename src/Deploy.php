@@ -1,8 +1,9 @@
 <?php
+
 namespace RJ\Robo\Task\Rocketeer;
 
 /**
- * Rocketeer Deploy
+ * Rocketeer Deploy.
  *
  * ``` php
  * <?php
@@ -33,6 +34,7 @@ class Deploy extends Base
     {
         $command = $this->getCommand();
         $this->printTaskInfo('Deploying Application: {command}', ['command' => $command]);
+
         return $this->executeCommand($command);
     }
 }
