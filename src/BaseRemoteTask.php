@@ -13,9 +13,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($connections)) {
             $implode = implode(',', $connections);
-            $this->option('on=', $implode);
+            $this->option('-C', $implode);
         } else {
-            $this->option('on=', $connections);
+            $this->option('-C', $connections);
         }
 
         return $this;
@@ -35,9 +35,9 @@ abstract class BaseRemoteTask extends Base
     {
         if (is_array($stages)) {
             $implode = implode(',', $stages);
-            $this->option('stage=', $implode);
+            $this->option('-S', $implode);
         } else {
-            $this->option('stage=', $stages);
+            $this->option('-S', $stages);
         }
 
         return $this;
@@ -56,6 +56,20 @@ abstract class BaseRemoteTask extends Base
     }
 
     /**
+     * Select branch to deploy.
+     *
+     * @param string $branch Branch to acts on.
+     *
+     * @return $this
+     */
+    public function branch($branch)
+    {
+        $this->option('-B', $branch);
+
+        return $this;
+    }
+
+    /**
      * Adds `pretend` option to rocketeer.
      *
      * Shows which command would execute without actually doing anything.
@@ -70,7 +84,7 @@ abstract class BaseRemoteTask extends Base
     }
 
     /**
-     * Adds `pretend` option to rocketeer.
+     * Adds `parallel` option to rocketeer.
      *
      * Run the tasks asynchronously instead of sequentially.
      *
@@ -78,21 +92,7 @@ abstract class BaseRemoteTask extends Base
      */
     public function inPararell()
     {
-        $this->option('--parallel');
-
-        return $this;
-    }
-
-    /**
-     * Select branch to deploy.
-     *
-     * @param string $branch Branch to acts on.
-     *
-     * @return $this
-     */
-    public function branch($branch)
-    {
-        $this->option('branch=', $branch);
+        $this->option('parallel');
 
         return $this;
     }
