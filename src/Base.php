@@ -146,7 +146,7 @@ abstract class Base extends BaseTask
         }
 
         $this->option($this->verbose)
-             ->option($this->ansi);
+            ->option($this->ansi);
 
         return "{$this->command} {$this->action}{$this->arguments}";
     }
